@@ -27,6 +27,7 @@ jobs:
                   files: 'system.json'
               env:
                   version: ${{ steps.get_version.outputs.VERSION_NUMBER }}
+                  download: https://github.com/${{github.repository}}/releases/download/${{ steps.get_version.outputs.VERSION }}/beyond-the-wall.zip
 
             - name: Zip files
               run: zip -r beyond-the-wall * -x ".github/*" "*.ts" "*.adoc" "tsconfig.json" "README.md"
@@ -42,16 +43,3 @@ jobs:
                   prerelease: false
                   token: ${{ secrets.GITHUB_TOKEN }}
                   artifacts: './system.json,./beyond-the-wall.zip'
-
-            # Update the 'latest' release
-            - name: Create Release
-              id: create_latest_release
-              uses: ncipollo/release-action@v1
-              with:
-                  allowUpdates: true
-                  name: Latest
-                  draft: false
-                  prerelease: false
-                  token: ${{ secrets.GITHUB_TOKEN }}
-                  artifacts: './system.json,./beyond-the-wall.zip'
-                  tag: latest
