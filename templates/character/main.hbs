@@ -40,24 +40,29 @@
             </div>
             <h3 class="header">Saving Throws</h3 class="header">
             <div class="save inner">
-                <div>Fortitude</div>
-                <input type="text" name="system.saves.Fortitude" value="{{data.system.saves.Fortitude}}" data-dtype="number" />
-                <a class="rollable" data-type="save" data-ability="Fortitude"><i class="fas fa-dice-d20"></i></a>
+                <input type="text" name="system.saves.0.name" value="{{data.system.saves.0.name}}" data-dtype="string" placeholder="Poison" />
+                <input type="text" name="system.saves.0.value" value="{{data.system.saves.0.value}}" data-dtype="number" />
+                <a class="rollable" data-type="save" data-ability="{{#default data.system.saves.0.name "Poison"}}{{/default}}"><i class="fas fa-dice-d20"></i></a>
             </div>
             <div class="save inner">
-                <div>Reflex</div>
-                <input type="text" name="system.saves.Reflex" value="{{data.system.saves.Reflex}}" data-dtype="number" />
-                <a class="rollable" data-type="save" data-ability="Reflex"><i class="fas fa-dice-d20"></i></a>
+                <input type="text" name="system.saves.1.name" value="{{data.system.saves.1.name}}" data-dtype="string" placeholder="Breath Weapon" />
+                <input type="text" name="system.saves.1.value" value="{{data.system.saves.1.value}}" data-dtype="number" />
+                <a class="rollable" data-type="save" data-ability="{{#default data.system.saves.0.name "Breath Weapon"}}{{/default}}"><i class="fas fa-dice-d20"></i></a>
             </div>
             <div class="save inner">
-                <div>Will</div>
-                <input type="text" name="system.saves.Will" value="{{data.system.saves.Will}}" data-dtype="number" />
-                <a class="rollable" data-type="save" data-ability="Will"><i class="fas fa-dice-d20"></i></a>
+                <input type="text" name="system.saves.2.name" value="{{data.system.saves.1.name}}" data-dtype="string" placeholder="Polymorph" />
+                <input type="text" name="system.saves.2.value" value="{{data.system.saves.2.value}}" data-dtype="number" />
+                <a class="rollable" data-type="save" data-ability="{{#default data.system.saves.0.name "Polymorph"}}{{/default}}"><i class="fas fa-dice-d20"></i></a>
             </div>
             <div class="save inner">
-                <div>Luck</div>
-                <input type="text" name="system.saves.Luck" value="{{data.system.saves.Luck}}" data-dtype="number" />
-                <a class="rollable" data-type="save" data-ability="Luck"><i class="fas fa-dice-d20"></i></a>
+                <input type="text" name="system.saves.3.name" value="{{data.system.saves.3.name}}" data-dtype="string" placeholder="Spell" />
+                <input type="text" name="system.saves.3.value" value="{{data.system.saves.3.value}}" data-dtype="number" />
+                <a class="rollable" data-type="save" data-ability="{{#default data.system.saves.0.name "Spell"}}{{/default}}"><i class="fas fa-dice-d20"></i></a>
+            </div>
+            <div class="save inner">
+                <input type="text" name="system.saves.4.name" value="{{data.system.saves.4.name}}" data-dtype="string" placeholder="Magic Item" />
+                <input type="text" name="system.saves.4.value" value="{{data.system.saves.4.value}}" data-dtype="number" />
+                <a class="rollable" data-type="save" data-ability="{{#default data.system.saves.0.name "Magic Item"}}{{/default}}"><i class="fas fa-dice-d20"></i></a>
             </div>
             <h3 class="header">Fortune Points</h3 class="header">
             <div class="inner">

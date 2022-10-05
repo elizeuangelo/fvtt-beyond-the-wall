@@ -2,7 +2,7 @@
 
 = 1.1.2 (October 5th 2022)
 
-* Implemented new Save System
+* Implemented new Save System with 5 configurable saves
 
 = 1.1.0 (October 5th 2022)
 

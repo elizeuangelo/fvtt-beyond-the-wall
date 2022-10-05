@@ -13,7 +13,7 @@ export class CharacterSheet extends ActorSheet<ActorSheet.Options, CharacterData
 			classes: ['beyond-the-wall', 'sheet', 'character'],
 			template: 'systems/beyond-the-wall/templates/character.hbs',
 			width: 575,
-			height: 700,
+			height: 730,
 			tabs: [
 				{
 					navSelector: '.sheet-tabs',

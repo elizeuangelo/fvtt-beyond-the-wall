@@ -12,5 +12,6 @@ export const preloadTemplates = async function () {
     Handlebars.registerHelper('isArcana', (t) => t == spellItemType);
     Handlebars.registerHelper('isEquipment', (t) => t == equipmentItemType);
     Handlebars.registerHelper('isWeapon', (t) => t == weaponItemType);
+    Handlebars.registerHelper('default', (value, base) => value || base);
     return loadTemplates(templatePaths);
 };
