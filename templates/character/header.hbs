@@ -1,0 +1,39 @@
+<header class="pc-sheet-header">
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+    <div class="prop" id="name">
+        <input type="text" name="name" value="{{actor.name}}" data-dtype="string" />
+        <label>Name</label>
+    </div>
+    <div class="prop " id="class">
+        <input type="text" name="system.class" value="{{data.system.class}}" data-dtype="string" />
+        <label>Class</label>
+    </div>
+    <div class="prop wide" id="exp">
+        <div>
+            <input type="text" name="system.exp.value" value="{{data.system.exp.value}}" data-dtype="number" />
+            <span>/</span>
+            <input type="text" name="system.exp.max" value="{{data.system.exp.max}}" data-dtype="number" />
+        </div>
+        <label>Experience</label>
+    </div>
+    <div class="prop" id="speed">
+        <input type="text" name="system.speed" value="{{data.system.speed}}" data-dtype="number" />
+        <label>Speed</label>
+    </div>
+    <div class="prop" id="init">
+        <input type="text" name="system.initiative" value="{{data.system.initiative}}" data-dtype="number" />
+        <label>Initiative</label>
+    </div>
+    <div class="prop" id="ac">
+        <input type="text" name="system.ac" value="{{data.system.ac}}" data-dtype="number" />
+        <label>AC</label>
+    </div>
+    <div class="prop wide" id="hp">
+        <div>
+            <input type="text" name="system.hp.value" value="{{data.system.hp.value}}" data-dtype="number" />
+            <span>/</span>
+            <input type="text" name="system.hp.max" value="{{data.system.hp.max}}" data-dtype="number" />
+        </div>
+        <label>Hit Points</label>
+    </div>
+</header>

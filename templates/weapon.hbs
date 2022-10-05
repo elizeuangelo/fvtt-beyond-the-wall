@@ -1,0 +1,47 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+        <div class="top">
+            <div class="prop">
+                <input name="name" type="text" value="{{item.name}}" data-dtype="string" />
+                <label>Name</label>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="prop">
+                <input type="text" name="system.bonus" value="{{data.system.bonus}}" data-dtype="number" />
+                <label>Bonus</label>
+            </div>
+            <div class="prop">
+                <input type="text" name="system.damage" value="{{data.system.damage}}" data-dtype="string" />
+                <label>Damage</label>
+            </div>
+            <div class="prop">
+                <input type="text" name="system.weight" value="{{data.system.weight}}" data-dtype="number" />
+                <label>weight</label>
+            </div>
+        </div>
+
+    </header>
+
+    <section class="sheet-body">
+        <div class="stat-row">
+            <div class="prop">
+                <input type="text" name="system.shortRange" value="{{data.system.shortRange}}" data-dtype="string" />
+                <label for="system.shortRange">Short Range</label>
+            </div>
+            <div class="prop">
+                <input type="text" name="system.longRange" value="{{data.system.longRange}}" data-dtype="string" />
+                <label for="system.longRange">Long Range</label>
+            </div>
+            <div class="prop">
+                <input type="text" name="system.reload" value="{{data.system.reload}}" data-dtype="string" />
+                <label for="system.reload">Reload Time</label>
+            </div>
+        </div>
+        <div class="wide-section grow">
+            <h3 class="header">Description</h3 class="header">
+            {{editor data.system.description target="system.description" button=true owner=owner editable=editable}}
+        </div>
+    </section>
+</form>

@@ -1,0 +1,32 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+        <div class="top">
+            <div class="prop">
+                <input name="name" type="text" value="{{item.name}}" data-dtype="string" />
+                <label>Name</label>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="prop">
+                <input type="text" name="system.weight" value="{{data.system.weight}}" data-dtype="number" />
+                <label>Weight</label>
+            </div>
+            <div class="prop">
+                <input type="text" name="system.quantity" value="{{data.system.quantity}}" data-dtype="number" />
+                <label>Quantity</label>
+            </div>
+            <div class="prop">
+                <input type="text" name="system.macro" value="{{data.system.macro}}" data-dtype="string" />
+                <label for="system.macro">Macro</label>
+            </div>
+        </div>
+    </header>
+
+    <section class="sheet-body">
+        <div class="wide-section grow">
+            <h3 class="header">Description</h3 class="header">
+            {{editor data.system.description target="system.description" button=true owner=owner editable=editable}}
+        </div>
+    </section>
+</form>

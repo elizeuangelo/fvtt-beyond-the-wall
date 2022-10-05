@@ -1,0 +1,45 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+        <div class="top">
+            <div class="prop">
+                <input name="name" type="text" value="{{item.name}}" data-dtype="string" />
+                <label>Name</label>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="prop">
+                <input type="text" name="system.time" value="{{data.system.time}}" data-dtype="string" />
+                <label>Casting Time</label>
+            </div>
+            <div class="prop">
+                <select name="system.spellType" data-dtype="string">
+                    {{#select data.system.spellType}}
+                    <option value="Cantrip">Cantrip</option>
+                    <option value="Ritual">Ritual</option>
+                    <option value="Spell">Spell</option>
+                    {{/select}}
+                </select>
+                <label>Type</label>
+            </div>
+            <div class="prop">
+                {{> "systems/beyond-the-wall/templates/item/abilitySelector.hbs" prop="system.ability" value=data.system.ability}}
+                <label>Ability</label>
+            </div>
+        </div>
+    </header>
+
+    <section class="sheet-body">
+        <div class="stat-row">
+            <div class="prop">
+
+                <input type="text" value="{{data.system.macro}}" name="system.macro" data-dtype="string" />
+                <label>Macro</label>
+            </div>
+        </div>
+        <div class="wide-section grow">
+            <h3 class="header">Description</h3 class="header">
+            {{editor data.system.description target="system.description" button=true owner=owner editable=editable}}
+        </div>
+    </section>
+</form>

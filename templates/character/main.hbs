@@ -1,0 +1,192 @@
+<div class="tab main" data-group="primary" data-tab="main">
+    <div class="side-bar">
+        <div class="stats">
+            <h3 class="header">Ability Scores</h3 class="header">
+            <div class="ability-score inner">
+                <div>STR</div>
+                <input type="text" name="system.abilities.STR" value="{{data.system.abilities.STR}}" data-dtype="number" />
+                <input type="text" disabled value="{{data.system.abilityMods.STR}}" />
+                <a class="rollable" data-type="skill" data-ability="STR"><i class="fas fa-dice-d20"></i></a>
+            </div>
+            <div class="ability-score inner">
+                <div>DEX</div>
+                <input type="text" name="system.abilities.DEX" value="{{data.system.abilities.DEX}}" data-dtype="number" />
+                <input type="text" disabled value="{{data.system.abilityMods.DEX}}" />
+                <a class="rollable" data-type="skill" data-ability="DEX"><i class="fas fa-dice-d20"></i></a>
+            </div>
+            <div class="ability-score inner">
+                <div>CON</div>
+                <input type="text" name="system.abilities.CON" value="{{data.system.abilities.CON}}" data-dtype="number" />
+                <input type="text" disabled value="{{data.system.abilityMods.CON}}" />
+                <a class="rollable" data-type="skill" data-ability="CON"><i class="fas fa-dice-d20"></i></a>
+            </div>
+            <div class="ability-score inner">
+                <div>INT</div>
+                <input type="text" name="system.abilities.INT" value="{{data.system.abilities.INT}}" data-dtype="number" />
+                <input type="text" disabled value="{{data.system.abilityMods.INT}}" />
+                <a class="rollable" data-type="skill" data-ability="INT"><i class="fas fa-dice-d20"></i></a>
+            </div>
+            <div class="ability-score inner">
+                <div>WIS</div>
+                <input type="text" name="system.abilities.WIS" value="{{data.system.abilities.WIS}}" data-dtype="number" />
+                <input type="text" disabled value="{{data.system.abilityMods.WIS}}" />
+                <a class="rollable" data-type="skill" data-ability="WIS"><i class="fas fa-dice-d20"></i></a>
+            </div>
+            <div class="ability-score inner">
+                <div>CHA</div>
+                <input type="text" name="system.abilities.CHA" value="{{data.system.abilities.CHA}}" data-dtype="number" />
+                <input type="text" disabled value="{{data.system.abilityMods.CHA}}" />
+                <a class="rollable" data-type="skill" data-ability="CHA"><i class="fas fa-dice-d20"></i></a>
+            </div>
+            <h3 class="header">Saving Throws</h3 class="header">
+            <div class="save inner">
+                <div>Fortitude</div>
+                <input type="text" name="system.saves.Fortitude" value="{{data.system.saves.Fortitude}}" data-dtype="number" />
+                <a class="rollable" data-type="save" data-ability="Fortitude"><i class="fas fa-dice-d20"></i></a>
+            </div>
+            <div class="save inner">
+                <div>Reflex</div>
+                <input type="text" name="system.saves.Reflex" value="{{data.system.saves.Reflex}}" data-dtype="number" />
+                <a class="rollable" data-type="save" data-ability="Reflex"><i class="fas fa-dice-d20"></i></a>
+            </div>
+            <div class="save inner">
+                <div>Will</div>
+                <input type="text" name="system.saves.Will" value="{{data.system.saves.Will}}" data-dtype="number" />
+                <a class="rollable" data-type="save" data-ability="Will"><i class="fas fa-dice-d20"></i></a>
+            </div>
+            <div class="save inner">
+                <div>Luck</div>
+                <input type="text" name="system.saves.Luck" value="{{data.system.saves.Luck}}" data-dtype="number" />
+                <a class="rollable" data-type="save" data-ability="Luck"><i class="fas fa-dice-d20"></i></a>
+            </div>
+            <h3 class="header">Fortune Points</h3 class="header">
+            <div class="inner">
+                <input type="checkbox" {{checked data.system.checkedFortunes.[0]}} name="system.checkedFortunes.0" />
+                <input type="checkbox" {{checked data.system.checkedFortunes.[1]}} name="system.checkedFortunes.1" />
+                <input type="checkbox" {{checked data.system.checkedFortunes.[2]}} name="system.checkedFortunes.2" />
+            </div>
+            <div class="inner">
+                <input type="checkbox" {{checked data.system.checkedFortunes.[3]}} name="system.checkedFortunes.3" />
+                <input type="checkbox" {{checked data.system.checkedFortunes.[4]}} name="system.checkedFortunes.4" />
+            </div>
+            <h3 class="header">Spell Slots</h3 class="header">
+            <div class="inner">
+                <input type="checkbox" {{checked data.system.checkedSlots.[0]}} name="system.checkedSlots.0" />
+                <input type="checkbox" {{checked data.system.checkedSlots.[1]}} name="system.checkedSlots.1" />
+                <input type="checkbox" {{checked data.system.checkedSlots.[2]}} name="system.checkedSlots.2" />
+                <input type="checkbox" {{checked data.system.checkedSlots.[3]}} name="system.checkedSlots.3" />
+                <input type="checkbox" {{checked data.system.checkedSlots.[4]}} name="system.checkedSlots.4" />
+            </div>
+            <div class="inner">
+                <input type="checkbox" {{checked data.system.checkedSlots.[5]}} name="system.checkedSlots.5" />
+                <input type="checkbox" {{checked data.system.checkedSlots.[6]}} name="system.checkedSlots.6" />
+                <input type="checkbox" {{checked data.system.checkedSlots.[7]}} name="system.checkedSlots.7" />
+                <input type="checkbox" {{checked data.system.checkedSlots.[8]}} name="system.checkedSlots.8" />
+                <input type="checkbox" {{checked data.system.checkedSlots.[9]}} name="system.checkedSlots.9" />
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="wide-section">
+            <h3 class="header">Skills</h3 class="header">
+            <div class="skill-box">
+                {{#each data.system.skills}}
+                <div class="skill">
+                    <input class="lined skill-name" name="system.skills.{{@key}}.name" type="text" data-dtype="string"
+                        value="{{this.name}}" />
+                    <input class="lined skill-bonus" name="system.skills.{{@key}}.bonus" type="text" data-dtype="number"
+                        value="{{this.bonus}}" />
+                    <a class="skill-delete" name="system.skills.{{@key}}.delete" title="Remove Skill" data-action="remove"
+                        data-index="{{@key}}"><i class="fas fa-trash"></i></a>
+                </div>
+                {{/each}}
+                <div class="skill placeholder"></div>
+                <div class="skill placeholder"></div>
+                <a class="skill-add" title="Add Skill" data-action="add">
+                    <i class="fas fa-plus"></i>
+                </a>
+            </div>
+        </div>
+        <div class="stat-row">
+            <div class="prop">
+                <input type="text" name="system.bab" value="{{data.system.bab}}" data-dtype="number" />
+                <Label>Base Attack Bonus</Label>
+            </div>
+            <div class="prop">
+                <input type="text" name="system.mab" value="{{data.system.mab}}" data-dtype="number" />
+                <Label>Melee Attack Bonus</Label>
+            </div>
+            <div class="prop">
+                <input type="text" name="system.rab" value="{{data.system.rab}}" data-dtype="number" />
+                <Label>Ranged Attack Bonus</Label>
+            </div>
+        </div>
+        <div class="wide-section">
+            <h3 class="header">Weapons</h3 class="header">
+            <ol class="item-list">
+                {{#each data.system.itemGroups.active as |item id|}}
+                <li class="item" data-item-id="{{item._id}}">
+                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                    <h4 class="item-name">{{item.name}}</h4>
+                    <div class="item-controls">
+                        <a class="rollable small-die" title="Roll Attack" data-type="attack"
+                            data-item-id="{{item._id}}">
+                            <i class="fas fa-dice-d20"></i>
+                        </a>
+                        <a class="rollable" title="Roll Damage" data-type="damage" data-item-id="{{item._id}}">
+                            <i class="fas fa-dice"></i>
+                        </a>
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    </div>
+                </li>
+                {{/each}}
+            </ol>
+        </div>
+        <div class="wide-section">
+            <h3 class="header">Arcana</h3 class="header">
+            <ol class="item-list">
+                {{#each data.system.itemGroups.arcana as |item id|}}
+                <li class="item" data-item-id="{{item._id}}">
+                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                    <h4 class="item-name">{{item.name}}</h4>
+                    <div class="item-controls">
+                        {{#if item.system.ability}}
+                        <span class="color-{{item.system.ability}}">{{item.system.ability}}</span>
+                        <span>/</span>
+                        {{/if}}
+                        <span>{{item.system.spellType}}</span>
+                        <a class="rollable small-die" title="Roll" data-type="macro" data-item-id="{{item._id}}">
+                            <i class="fas fa-dice-d20"></i>
+                        </a>
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    </div>
+                </li>
+                {{/each}}
+            </ol>
+        </div>
+        <div class="wide-section">
+            <h3 class="header">Traits</h3 class="header">
+            <ol class="item-list">
+                {{#each data.system.itemGroups.traits as |item id|}}
+                <li class="item" data-item-id="{{item._id}}">
+                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                    <h4 class="item-name">{{item.name}}</h4>
+                    <div class="item-controls">
+                        <a class="rollable small-die" title="Roll" data-type="macro" data-item-id="{{item._id}}">
+                            <i class="fas fa-dice-d20"></i>
+                        </a>
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    </div>
+                </li>
+                {{/each}}
+            </ol>
+        </div>
+        <div class="wide-section grow">
+            <h3 class="header">Notes</h3 class="header">
+            {{editor data.system.mainNotes target="system.mainNotes" button=true owner=owner editable=editable}}
+        </div>
+    </div>
+</div>

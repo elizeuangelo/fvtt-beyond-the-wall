@@ -1,0 +1,37 @@
+= Changelog
+
+= 1.1.0 (October 5th 2022)
+
+* Revisioned and ajusted to Foundry v10
+
+= 1.0.5 (June 20th 2020)
+
+* Fixed issue around invisible h3 in note sections
+* Added encumbrance calculation to general sheet
+
+= 1.0.4 (June 17th 2020)
+
+* Added damage rolls for weapons
+
+= 1.0.3 (June 17th 2020)
+
+* Fixed saves acting like skills
+* Added support for automatic initiative
+* Added initiative to General sheet
+
+= 1.0.2 (June 15th 2020)
+
+* Fixed str->number conversion errors in weapon bonuses
+* Removed difference value from saves
+* Fixed typo on General sheet
+* Fixed quantity buttons and weapon roll button on General Sheet
+
+= 1.0.1 (June 14th 2020)
+
+* Renamed "Traits" -> "Traits & Features" on General Sheet
+* Added dice rolling on General Sheet
+* Added Quantity & Spell Notes to items on General Sheet
+
+= 1.0.0 (June 14th 2020)
+
+Initial Implementation

@@ -1,0 +1,14 @@
+<form class="{{cssClass}}" autocomplete="off">
+    {{> "systems/beyond-the-wall/templates/character/header.hbs" }}
+
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="main">Main</a>
+        <a class="item" data-tab="items">Items</a>
+        <a class="item" data-tab="description">Description</a>
+    </nav>
+    <section class="sheet-body">
+        {{> "systems/beyond-the-wall/templates/character/main.hbs"}}
+        {{> "systems/beyond-the-wall/templates/character/items.hbs"}}
+        {{> "systems/beyond-the-wall/templates/character/description.hbs"}}
+    </section>
+</form>

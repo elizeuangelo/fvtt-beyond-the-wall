@@ -1,0 +1,105 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+        <div class="top">
+            <div class="prop">
+                <input type="text" name="name" value="{{actor.name}}" data-dtype="string" />
+                <label>Name</label>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="prop">
+                <input type="text" name="system.unitType" value="{{data.system.unitType}}" data-dtype="string" />
+                <label>Type</label>
+            </div>
+            <div class="prop wide" id="hp">
+                <div>
+                    <input type="text" name="system.hp.value" value="{{data.system.hp.value}}" data-dtype="number" />
+                    <span>/</span>
+                    <input type="text" name="system.hp.max" value="{{data.system.hp.max}}" data-dtype="number" />
+                </div>
+                <label>Hit Points</label>
+            </div>
+        </div>
+    </header>
+
+    <section class="sheet-body">
+        <div class="stat-row">
+            <div class="prop">
+                <input type="text" name="system.initiative" value="{{data.system.initiative}}" data-dtype="string" />
+                <label>Initiative</label>
+            </div>
+            <div class="prop wide">
+                <div>
+                    <input type="text" disabled value="{{data.system.carryWeight}}" />
+                    <span>/</span>
+                    <input type="text" value="{{data.system.maxWeight}}" name="system.maxWeight" />
+                </div>
+                <label for="">Encumbrance</label>
+            </div>
+
+        </div>
+        <div class='wide-section'>
+            <h3 class="header">Statistics</h3 class="header">
+            <div class="skill-box">
+                {{#each data.system.skills}}
+                <div class="skill">
+                    <input class="lined skill-name" name="system.skills.{{@key}}.name" type="text" data-dtype="string"
+                        value="{{this.name}}" />
+                    <input class="lined skill-bonus" name="system.skills.{{@key}}.bonus" type="text" data-dtype="number"
+                        value="{{this.bonus}}" />
+                    <a class="skill-delete" name="system.skills.{{@key}}.delete" title="Remove skill" data-action="remove"
+                        data-index="{{@key}}"><i class="fas fa-trash"></i></a>
+                </div>
+                {{/each}}
+                <div class="skill placeholder"></div>
+                <div class="skill placeholder"></div>
+                <div class="skill placeholder"></div>
+                <div class="skill placeholder"></div>
+                <a class="skill-add" title="Add Skill" data-action="add">
+                    <i class="fas fa-plus"></i>
+                </a>
+            </div>
+
+        </div>
+        <div class='wide-section'>
+            <h3 class="header">Traits & Features</h3 class="header">
+            <ol class="item-list">
+                {{#each items as |item id|}}
+                <li class="item" data-item-id="{{item._id}}">
+                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                    <h4 class="item-name">{{item.name}}</h4>
+                    <div class="item-controls">
+                        {{#if (isEquipment item.type)}}
+                        <span>Quantity:</span>
+                        <a class="item-control item-dec"><i class="fas fa-minus"></i></a>
+                        <span>{{item.system.quantity}}</span>
+                        <a class="item-control item-inc"><i class="fas fa-plus"></i></a>
+                        {{else if (isArcana item.type)}}
+                        {{#if item.system.ability}}
+                        <span class="color-{{item.system.ability}}">{{item.system.ability}}</span>
+                        <span>/</span>
+                        {{/if}}
+                        <span>{{item.system.spellType}}</span>
+                        {{/if}}
+                        <a class="rollable small-die" title="Roll" data-item-id="{{item._id}}" data-type="use">
+                            <i class="fas fa-dice-d20"></i>
+                        </a>
+                        {{#if (isWeapon item.type)}}
+                        <a class="rollable" title="Roll Damage" data-type="damage" data-item-id="{{item._id}}">
+                            <i class="fas fa-dice"></i>
+                        </a>
+                        {{/if}}
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    </div>
+                </li>
+                {{/each}}
+            </ol>
+        </div>
+        <div class="wide-section grow">
+            <h3 class="header">Notes</h3 class="header">
+            {{editor data.system.notes target="system.notes" button=true owner=owner editable=editable}}
+        </div>
+    </section>
+</form>

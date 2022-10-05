@@ -1,0 +1,53 @@
+<div class="tab description" data-group="primary" data-tab="description">
+    <div class="wide-section">
+        <h3 class="header">Description</h3 class="header">
+        <div class="entry">
+            <label>Height & Weight</label>
+            <input class="lined" type="text" value="{{data.system.heightWeight}}" name="system.heightWeight" />
+        </div>
+        <div class="entry">
+            <label>Distinguishing Features</label>
+            <input class="lined" type="text" value="{{data.system.features}}" name="system.features" />
+        </div>
+        <div class="entry">
+            <label>Personality Traits</label>
+            <input class="lined" type="text" value="{{data.system.traits}}" name="system.traits" />
+        </div>
+        {{#each data.misc}}
+        <div class="entry">
+            {{#if @index}}{{else}}<label>Miscellaneous</label>{{/if}}
+            <input class="lined" name="system.misc.{{@key}}" type="text" data-dtype="string" value="{{this}}" />
+        </div>
+        {{/each}}
+    </div>
+    <div class="wide-section">
+        <h3 class="header">Goals</h3 class="header">
+        <div class="goal-table">
+            <h4>Type</h4>
+            <h4>Description</h4>
+            <h4>Exp</h4>
+            <h4></h4>
+            {{#each data.system.goals}}
+            <input class="goal lined" name="system.goals.{{@key}}.type" type="text" data-dtype="string"
+                value="{{this.type}}" />
+            <input class="goal lined" name="system.goals.{{@key}}.description" type="text" data-dtype="number"
+                value="{{this.description}}" />
+            <input class="goal lined" name="system.goals.{{@key}}.exp" type="text" data-dtype="string"
+                value="{{this.exp}}" />
+            <a class="goal-delete" name="system.goals.{{@key}}.delete" title="Remove goal" data-action="remove"
+                data-index="{{@key}}"><i class="fas fa-trash"></i></a>
+            {{/each}}
+            <a class="goal-add" title="Add goal" data-action="add">
+                <i class="fas fa-plus"></i>
+            </a>
+        </div>
+    </div>
+    <div class="wide-section grow">
+        <h3 class="header">Notes</h3 class="header">
+        {{editor data.system.notes target="system.notes" button=true owner=owner editable=editable}}
+    </div>
+    <div class="wide-section grow">
+        <h3 class="header">Background</h3 class="header">
+        {{editor data.system.background target="system.background" button=true owner=owner editable=editable}}
+    </div>
+</div>
