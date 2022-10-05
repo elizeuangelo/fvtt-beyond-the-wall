@@ -29,7 +29,7 @@ jobs:
                   version: ${{ steps.get_version.outputs.VERSION_NUMBER }}
 
             - name: Zip files
-              run: zip -r beyond-the-wall * -x ".github/*" "*.ts" "*.adoc" "tsconfig.json"
+              run: zip -r beyond-the-wall * -x ".github/*" "*.ts" "*.adoc" "tsconfig.json" "README.md"
 
             # Create a release for this specific version
             - name: Create Release

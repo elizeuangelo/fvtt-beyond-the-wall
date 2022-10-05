@@ -1,5 +1,9 @@
 = Changelog
 
+= 1.1.2 (October 5th 2022)
+
+* Implemented new Save System
+
 = 1.1.0 (October 5th 2022)
 
 * Revisioned and ajusted to Foundry v10
