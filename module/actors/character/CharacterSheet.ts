@@ -82,7 +82,7 @@ export class CharacterSheet extends ActorSheet<ActorSheet.Options, CharacterData
 			let flavor: string = '';
 			switch (target.type) {
 				case 'skill':
-					mod = await SystemRoll.getModifier('Difficulty');
+					mod = await SystemRoll.getModifier('Modifier');
 					roll = new SystemRoll(this.actor, target.ability, target.type, mod);
 					break;
 				case 'save':
@@ -108,6 +108,8 @@ export class CharacterSheet extends ActorSheet<ActorSheet.Options, CharacterData
 						user: game.user!.id,
 						speaker: ChatMessage.getSpeaker({ actor: this.actor }),
 						content: flavor + content,
+						type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+						sound: CONFIG.sounds.dice,
 					});
 				});
 		});

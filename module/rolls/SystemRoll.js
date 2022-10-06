@@ -1,3 +1,4 @@
+import { saves } from '../actors/character/CharacterData.js';
 var RollDirection;
 (function (RollDirection) {
     RollDirection[RollDirection["high"] = 0] = "high";
@@ -39,15 +40,20 @@ export class SystemRoll extends Roll {
                 super(`1d20`);
                 this.name = `${data} Check`;
                 this.modifier = 0;
-                this.target = Number.parseInt(roller.system.abilities[data]) - mod;
+                this.target = Number.parseInt(roller.system.abilities[data]) + mod;
                 this.direction = RollDirection.low;
-                this.showOffset = true;
+                this.showOffset = false;
                 break;
             case 'save':
+                const savesMap = Object.values(roller.system.saves).map(({ name, value }, idx) => {
+                    if (name === '')
+                        name = saves[idx];
+                    return { name, value };
+                });
                 super(`1d20 + ${mod}`);
                 this.name = `${data} Save`;
                 this.modifier = mod;
-                this.target = Number.parseInt(roller.system.saves[data]);
+                this.target = Number.parseInt(savesMap.find((save) => save.name === data).value);
                 this.direction = RollDirection.high;
                 this.showOffset = false;
                 break;
@@ -66,9 +72,8 @@ export class SystemRoll extends Roll {
             flavor: null,
             template: 'systems/beyond-the-wall/templates/roll.hbs',
         }, chatOptions || {});
-        if (!this._evaluated) {
-            await this.roll({ async: true });
-        }
+        if (!this._evaluated)
+            await this.evaluate({ async: true });
         var result = '';
         var vs = '';
         var offset = '';
@@ -87,17 +92,14 @@ export class SystemRoll extends Roll {
         const chatData = {
             user: chatOptions.user,
             name: this.name,
-            die: this.dice[0].faces,
+            die: '1d' + this.dice[0].faces,
             total: this.total,
             vs,
             modifiers: SystemRoll.toModString(this.modifier),
             result,
             offset,
+            parts: this.dice.map((d) => d.getTooltipData()),
         };
         return renderTemplate(chatOptions.template, chatData);
-    }
-    async toMessage(chatData) {
-        chatData.content = await this.render({ user: chatData.user });
-        return ChatMessage.create(chatData);
     }
 }

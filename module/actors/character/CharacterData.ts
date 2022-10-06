@@ -4,10 +4,12 @@ import { AbilityScoreBlock, baseAbilityScoreBlock } from '../shared/AbilityScore
 
 export const characterActorType: CharacterActorType = 'CharacterActor';
 
-type Save = {
+export type Save = {
 	name: string;
-	value: number;
+	value: string;
 };
+
+export const saves = ['Poison', 'Breath Weapon', 'Polymorph', 'Spell', 'Magic Item'];
 
 export type CharacterData = ActorData & {
 	type: CharacterActorType;
@@ -86,11 +88,11 @@ export const emptyCharacterData: CharacterData = {
 	notes: '',
 	rab: 0,
 	saves: {
-		0: { name: '', value: 0 },
-		1: { name: '', value: 0 },
-		2: { name: '', value: 0 },
-		3: { name: '', value: 0 },
-		4: { name: '', value: 0 },
+		0: { name: '', value: '0' },
+		1: { name: '', value: '0' },
+		2: { name: '', value: '0' },
+		3: { name: '', value: '0' },
+		4: { name: '', value: '0' },
 	},
 	skills: [],
 	slots: 0,

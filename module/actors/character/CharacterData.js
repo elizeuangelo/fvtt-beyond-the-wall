@@ -1,5 +1,6 @@
 import { baseAbilityScoreBlock } from '../shared/AbilityScores.js';
 export const characterActorType = 'CharacterActor';
+export const saves = ['Poison', 'Breath Weapon', 'Polymorph', 'Spell', 'Magic Item'];
 export const emptyCharacterData = {
     type: characterActorType,
     class: '',
@@ -28,11 +29,11 @@ export const emptyCharacterData = {
     notes: '',
     rab: 0,
     saves: {
-        0: { name: '', value: 0 },
-        1: { name: '', value: 0 },
-        2: { name: '', value: 0 },
-        3: { name: '', value: 0 },
-        4: { name: '', value: 0 },
+        0: { name: '', value: '0' },
+        1: { name: '', value: '0' },
+        2: { name: '', value: '0' },
+        3: { name: '', value: '0' },
+        4: { name: '', value: '0' },
     },
     skills: [],
     slots: 0,
