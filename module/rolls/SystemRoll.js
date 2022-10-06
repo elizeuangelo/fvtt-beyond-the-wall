@@ -102,4 +102,21 @@ export class SystemRoll extends Roll {
         };
         return renderTemplate(chatOptions.template, chatData);
     }
+    static fromData(data) {
+        const roll = new Roll(data.formula);
+        roll.terms = data.terms.map((t) => {
+            if (t.class) {
+                if (t.class === 'DicePool')
+                    t.class = 'PoolTerm';
+                return RollTerm.fromData(t);
+            }
+            return t;
+        });
+        if (data.evaluated ?? true) {
+            roll._total = data.total;
+            roll._dice = (data.dice || []).map((t) => DiceTerm.fromData(t));
+            roll._evaluated = true;
+        }
+        return roll;
+    }
 }

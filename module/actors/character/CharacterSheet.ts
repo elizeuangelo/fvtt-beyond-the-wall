@@ -110,6 +110,7 @@ export class CharacterSheet extends ActorSheet<ActorSheet.Options, CharacterData
 						content: flavor + content,
 						type: CONST.CHAT_MESSAGE_TYPES.ROLL,
 						sound: CONFIG.sounds.dice,
+						rolls: [roll],
 					});
 				});
 		});

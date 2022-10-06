@@ -96,6 +96,7 @@ export class CharacterSheet extends ActorSheet {
                         content: flavor + content,
                         type: CONST.CHAT_MESSAGE_TYPES.ROLL,
                         sound: CONFIG.sounds.dice,
+                        rolls: [roll],
                     });
                 });
         });

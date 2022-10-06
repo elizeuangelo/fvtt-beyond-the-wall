@@ -118,8 +118,27 @@ export class SystemRoll extends Roll {
 
 		return renderTemplate(chatOptions.template, chatData);
 	}
-	//async toMessage(chatData) {
-	//	chatData.content = await this.render({ user: chatData.user });
-	//	return ChatMessage.create(chatData);
-	//}
+
+	static fromData(data) {
+		// Create the Roll instance
+		const roll = new Roll(data.formula) as any;
+
+		// Expand terms
+		roll.terms = data.terms.map((t) => {
+			if (t.class) {
+				if (t.class === 'DicePool') t.class = 'PoolTerm'; // backwards compatibility
+				return RollTerm.fromData(t);
+			}
+			return t;
+		});
+
+		// Repopulate evaluated state
+		if (data.evaluated ?? true) {
+			roll._total = data.total;
+			roll._dice = (data.dice || []).map((t) => DiceTerm.fromData(t));
+			roll._evaluated = true;
+		}
+
+		return roll;
+	}
 }
