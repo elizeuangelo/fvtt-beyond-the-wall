@@ -2,7 +2,7 @@
 	"id": "beyond-the-wall",
 	"title": "Beyond The Wall",
 	"description": "A basic system for Beyond the Wall, likely extensible to many OSR systems.",
-	"version": "1.1.4",
+	"version": "1.1.5",
 	"author": "studio315b, elizeuangelo",
 	"scripts": [],
 	"esmodules": ["beyond-the-wall.js"],
@@ -12,7 +12,7 @@
 	"gridUnits": "yd",
 	"compatibility": {
 		"minimum": 10,
-		"verified": 10.286
+		"verified": 10.291
 	},
 	"initiative": "@initiative",
 	"url": "https://github.com/elizeuangelo/fvtt-beyond-the-wall",

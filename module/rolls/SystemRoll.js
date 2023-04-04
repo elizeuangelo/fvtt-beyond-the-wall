@@ -33,7 +33,7 @@ export class SystemRoll extends Roll {
         });
     }
     static toModString = (value) => (value == 0 ? '' : value > 0 ? `+ ${value}` : `- ${Math.abs(value)}`);
-    constructor(roller, data, type, mod) {
+    constructor(roller, data, type, mod, rollData = {}) {
         var item = data;
         switch (type) {
             case 'skill':
@@ -58,10 +58,10 @@ export class SystemRoll extends Roll {
                 this.showOffset = false;
                 break;
             case 'attack':
-                var amod = Number.parseInt(item.system.bonus) + mod;
+                var amod = Number.parseInt(Roll.getFormula(Roll.parse(item.system.bonus || '0', rollData))) + mod;
                 super(`1d20 + ${amod}`);
                 this.name = `${item.name} Attack`;
-                this.modifier = amod;
+                this.modifier = +amod;
                 this.target = NaN;
                 break;
         }

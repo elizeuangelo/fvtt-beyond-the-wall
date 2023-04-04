@@ -4,7 +4,7 @@ export const emptyWeaponData = {
     description: '',
     weight: 1,
     wearing: true,
-    bonus: 0,
+    bonus: '0',
     damage: '1d6',
     shortRange: '',
     longRange: '',

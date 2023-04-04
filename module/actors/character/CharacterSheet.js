@@ -66,6 +66,10 @@ export class CharacterSheet extends ActorSheet {
             let roll;
             let mod;
             let flavor = '';
+            const mods = Object.entries(this.actor.system.abilities)
+                .map(([k, v]) => [k, getModifier(v)])
+                .reduce((p, c) => ({ ...p, [c[0].toLowerCase()]: c[1] }), {});
+            const data = { ...mods, system: this.actor.system, melee: this.actor.system.mab, ranged: this.actor.system.rab };
             switch (target.type) {
                 case 'skill':
                     mod = await SystemRoll.getModifier('Modifier');
@@ -76,15 +80,18 @@ export class CharacterSheet extends ActorSheet {
                     roll = new SystemRoll(this.actor, target.ability, target.type, mod);
                     break;
                 case 'damage':
-                    roll = new Roll(this.actor.items.get(target.itemId).system.damage);
+                    roll = new Roll(this.actor.items.get(target.itemId).system.damage, data);
                     flavor = `<h3>${this.actor.items.get(target.itemId).name} Damage</h3>`;
                     break;
                 case 'attack':
                     mod = await SystemRoll.getModifier('Modifier');
-                    roll = new SystemRoll(this.actor, this.actor.items.get(target.itemId), target.type, mod);
+                    roll = new SystemRoll(this.actor, this.actor.items.get(target.itemId), target.type, mod, data);
                     break;
                 case 'macro':
-                    roll = new Roll(this.actor.items.get(target.itemId).system.macro);
+                    const macro = this.actor.items.get(target.itemId).system.macro;
+                    if (!macro)
+                        return ui.notifications.warn('The macro formula is empty.');
+                    roll = new Roll(macro, data);
                     flavor = `<h3>${this.actor.items.get(target.itemId).name}</h3>`;
                     break;
             }

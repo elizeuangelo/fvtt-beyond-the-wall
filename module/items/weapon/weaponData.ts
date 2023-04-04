@@ -3,7 +3,7 @@ import { WeaponItemType, PhysicalItemData } from '../itemTypes.js';
 export const weaponItemType: WeaponItemType = 'Weapon';
 
 export type WeaponData = PhysicalItemData & {
-	bonus: number;
+	bonus: string;
 	damage: string;
 	shortRange: string;
 	longRange: string;
@@ -15,7 +15,7 @@ export const emptyWeaponData: WeaponData = {
 	description: '',
 	weight: 1,
 	wearing: true,
-	bonus: 0,
+	bonus: '0',
 	damage: '1d6',
 	shortRange: '',
 	longRange: '',
